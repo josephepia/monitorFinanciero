@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "first_turo_frame" do %>
+
+  <%= link_to "Some Page", tickers_path,data: {turbo_frame: "second_frame"} %>
+<% end %>

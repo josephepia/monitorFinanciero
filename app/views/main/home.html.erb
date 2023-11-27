@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "second_frame" do%>
+  <main class="flex w-full h-screen">
+
+  <%= turbo_frame_tag "rooms_controller" do %>
+  
+  <div>
+    <h1 class="font-bold text-4xl">Main#home</h1>
+    <p>Find me in app/views/main/home.html.erb</p>
+    <h1 class="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+    <%= button_to destroy_user_session_path, method: :delete do %>
+    log out
+    <%end%>
+    
+  </div>
+  <% end %>
+</main>
+  <% end %>

@@ -1,0 +1,42 @@
+<div id="<%= dom_id ticker %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ticker:</strong>
+    <%= ticker.ticker %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Assettype:</strong>
+    <%= ticker.assetType %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= ticker.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Assettype:</strong>
+    <%= ticker.assetType %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Isactive:</strong>
+    <%= ticker.isActive %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Tiingopermaticker:</strong>
+    <%= ticker.tiingoPermaticker %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Openfigiticker:</strong>
+    <%= ticker.openFIGITicker %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this ticker", ticker, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this ticker", edit_ticker_path(ticker), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
