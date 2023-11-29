@@ -41,7 +41,7 @@ class TickersController < ApplicationController
 
   # GET /tickers/1 or /tickers/1.json
   def show
-  
+  # comentario de ejemplo
   #consultar tickers individual. en 2 consultas
   #1. consultar informacion general ----- meta endpoint
   # https://api.tiingo.com/tiingo/daily/<ticker>
