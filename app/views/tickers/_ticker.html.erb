@@ -1,4 +1,4 @@
-<div id="<%= dom_id ticker %>">
+<div id="<%=ticker.ticker %>" class="bg-[#fafafa]">
   <p class="my-5">
     <strong class="block font-medium mb-1">Ticker:</strong>
     <%= ticker.ticker %>
@@ -26,17 +26,16 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Tiingopermaticker:</strong>
-    <%= ticker.tiingoPermaticker %>
+    <%= ticker.permaTicker %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Openfigiticker:</strong>
-    <%= ticker.openFIGITicker %>
+    <%= ticker.openFIGI %>
   </p>
 
   <% if action_name != "show" %>
     <%= link_to "Show this ticker", ticker, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this ticker", edit_ticker_path(ticker), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

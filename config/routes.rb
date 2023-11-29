@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tickers
+  resources :tickers, param: :ticker
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }

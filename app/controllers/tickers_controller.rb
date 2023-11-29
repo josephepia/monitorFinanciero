@@ -3,11 +3,56 @@ class TickersController < ApplicationController
 
   # GET /tickers or /tickers.json
   def index
-    @tickers = Ticker.all
+    puts "lista de parametros"
+    puts params
+    @tickers = []
+
+    if params[:search]
+      response = HTTParty.get("https://api.tiingo.com/tiingo/utilities/search?query=#{params[:search]}&token=81a8235f351a08e7b2c53a822e5591fa17e0f3b6")
+      response.each do |tick|
+        newTick = Ticker.new(tick)
+        newTick.id = tick[:ticker]
+        @tickers.push(newTick)
+      end
+    else
+      @tickers = Ticker.all
+
+    end
+
+
+    # response = HTTParty.get('http://api.stackexchange.com/2.2/questions?site=stackoverflow')
+    #   response = HTTParty.get("https://api.tiingo.com/tiingo/utilities/search?query=#{params[:search]}&token=81a8235f351a08e7b2c53a822e5591fa17e0f3b6")
+    # puts response
+    # if params[:search]
+    #
+    #   response = HTTParty.get("https://api.tiingo.com/tiingo/utilities/search?query=#{params[:search]}&token=81a8235f351a08e7b2c53a822e5591fa17e0f3b6")
+    #
+    # else
+    #
+    # end
+    # @tickers = Ticker.all
+    
+    #@tickers = if params[:search]
+                # use api search tickers
+                #else
+                # use api show index top tickers
+                
   end
 
   # GET /tickers/1 or /tickers/1.json
   def show
+  
+  #consultar tickers individual. en 2 consultas
+  #1. consultar informacion general ----- meta endpoint
+  # https://api.tiingo.com/tiingo/daily/<ticker>
+  # profile = HTTParty.get("https://api.tiingo.com/tiingo/daily/#{params}")
+  puts("parametros que llegan al show")
+
+  puts(params)
+  puts("---fin impresion parametros ")
+    # general = HTTParty.get("https://api.tiingo.com/tiingo/utilities/search?query=#{params[:search]}&token=81a8235f351a08e7b2c53a822e5591fa17e0f3b6")
+  #2. consultar final del dia, e historico
+  
   end
 
   # GET /tickers/new
@@ -65,6 +110,6 @@ class TickersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticker_params
-      params.require(:ticker).permit(:ticker, :assetType, :name, :assetType, :isActive, :tiingoPermaticker, :openFIGITicker)
+      params.require(:ticker).permit(:ticker, :assetType, :name, :assetType, :isActive, :permaTicker, :openFIGITicker)
     end
 end
